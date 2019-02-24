@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <title>Book Finder</title>
+</head>
+<body>
+    <div class="booktit"><b>Book Finder</b></div>
+    <div class="frm">
+        <form method="get">
+            <input type="text" class="form-control" id="query" placeholder="Search for Books" autocomplete="off" autofocus>
+            <input type="button" class="btn btn-success srcBtn" value="Search" name="btn" onclick="queryBooks()">
+        </form>
+    </div>
+    <div class = "results" id="res">
+        <!-- <div class="card col-md-6" style="width: 32rem;" id="results"></div> -->
+    </div>
+</body>
+</html>
