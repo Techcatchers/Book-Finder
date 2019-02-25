@@ -9,16 +9,21 @@
     <script src="main.js"></script>
     <title>Book Finder</title>
 </head>
-<body>
+<body id="main">
     <div class="booktit"><b>Book Finder</b></div>
     <div class="frm">
-        <form method="get">
             <input type="text" class="form-control" id="query" placeholder="Search for Books" autocomplete="off" autofocus>
             <input type="button" class="btn btn-success srcBtn" value="Search" name="btn" onclick="queryBooks()">
-        </form>
     </div>
     <div class = "results" id="res">
         <!-- <div class="card col-md-6" style="width: 32rem;" id="results"></div> -->
     </div>
 </body>
+<script>
+    document.getElementById("query").onkeypress = function(event){
+                    if (event.keyCode == 13 || event.which == 13){
+                        queryBooks();
+                    }
+                };
+</script>
 </html>

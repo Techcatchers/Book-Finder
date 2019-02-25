@@ -1,8 +1,24 @@
+var verify_existance = false;
+
 function queryBooks() {
     
     const QUERY = document.getElementById("query").value;
-    const results = document.getElementById("res");
-    var card = '';
+    var results = document.getElementById("res");
+
+    if (verify_existance == true) {
+            // for (var i = 0; i < 10; i++) {
+            console.log(results)
+            results.remove(results);
+
+            results = document.createElement('div');
+            results.setAttribute('id', 'res'); 
+            results.setAttribute('class', 'results'); 
+
+            document.getElementById('main').appendChild(results);
+        }
+    
+    // var card = '';
+
     // results.innerHTML = QUERY;
     
     const URL = "https://www.googleapis.com/books/v1/volumes?q=" + QUERY
@@ -18,11 +34,17 @@ function queryBooks() {
         for (var i = 0; i < 10; i++) {
             var data = JSON.parse(this.response);
             // console.log(data)
-            var authors = (data["items"][i]["volumeInfo"]["authors"])
-            var title = (data["items"][i]["volumeInfo"]["title"])
-            var publisher = (data["items"][i]["volumeInfo"]["publisher"])
-            var thumbnail = data["items"][i]["volumeInfo"]["imageLinks"]["thumbnail"]
-            var info = (data["items"][i]["volumeInfo"]["infoLink"])
+            var authors = (data["items"][i]["volumeInfo"]["authors"]) || 'No Author Disclosed'
+            var title = (data["items"][i]["volumeInfo"]["title"]) || 'No title Disclosed'
+            var publisher = (data["items"][i]["volumeInfo"]["publisher"]) || 'No publisher Disclosed'
+            try {
+            var thumbnail = data["items"][i]["volumeInfo"]["imageLinks"]["thumbnail"] 
+            }
+            catch (err) {
+                var thumbnail = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Georgia_404.svg/1125px-Georgia_404.svg.png'
+            }
+
+            var info = (data["items"][i]["volumeInfo"]["infoLink"]) || 'No info Disclosed'
             
             // results.innerHTML = authors + "<br>" + title + "<br>" + publisher + "<br>" + thumbnail + "<br>" + info + "<br>"
             
@@ -66,7 +88,7 @@ function queryBooks() {
         results.appendChild(card); }
     } 
     
-
+    verify_existance = true;
     // Send request
     request.send()
     
