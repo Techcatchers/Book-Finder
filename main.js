@@ -50,7 +50,7 @@ function queryBooks() {
             
         card = document.createElement('div');
         card.setAttribute('class', 'card col-md-6');
-        card.setAttribute('style', 'width: 32rem;');
+        card.setAttribute('style', 'max-width: 32rem;');
         card.setAttribute('id', 'results');
 
 

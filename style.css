@@ -28,13 +28,29 @@ body {
     font-size: 48px;
     /* color: #777B7E; */
     position: absolute;
-    transform: translate(67%, 70%);
+    top: 10vh;
+    left: 35vw;
+    /* transform: translate(67%, 70%); */
     margin: auto;
 }
 
+@media screen and (max-width: 561px) {
+    .booktit {
+        font-size: 42px;
+        left: 25vw;
+    }
+}
+
+@media screen and (max-width: 492px) {
+    .booktit {
+        font-size: 32px;
+    }
+}
+
 .card-img-top {
-    width: 30%;
-    height: 15vw;
+    max-width: 30%;
+    max-height: 15vw;
+    min-height: 15vh;
     display: inline-block;
     /* float: left; */
     vertical-align: middle;
