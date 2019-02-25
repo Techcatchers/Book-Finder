@@ -7,7 +7,7 @@ function queryBooks() {
 
     if (verify_existance == true) {
             // for (var i = 0; i < 10; i++) {
-            console.log(results)
+            // console.log(results)
             results.remove(results);
 
             results = document.createElement('div');

@@ -26,7 +26,7 @@ body {
 .booktit {
     width: 50%;
     font-size: 48px;
-    /* color: #777B7E; */
+    color: #696969;
     position: absolute;
     top: 10vh;
     left: 35vw;
@@ -48,15 +48,24 @@ body {
 }
 
 .card-img-top {
-    max-width: 30%;
-    max-height: 15vw;
-    min-height: 15vh;
+    min-width: 28%;
+    max-width: 32%;
+    height: 15vw;
+    /* min-height: 15vw; */
     display: inline-block;
     /* float: left; */
     vertical-align: middle;
     /* object-fit: cover; */
     padding: 10px;
     transform: translateY(-10%)
+}
+
+@media screen and (max-width: 492px) {
+    .card-img-top {
+        height: 25vh;
+        min-width: 50%;
+        transform: translateY(-15px);
+    }
 }
 
 .results {
@@ -73,8 +82,12 @@ body {
 .card-body {
     /* float: left; */
     display: inline-block;
-    vertical-align: middle;
-    
+}
+
+.card-title {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card {
