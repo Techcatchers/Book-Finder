@@ -54,8 +54,9 @@ body {
     display: inline-block;
     vertical-align: middle;
     object-fit: cover;
-    padding: 10px;
-    transform: translateY(-15%)
+    /* padding: 10px; */
+    transform: translateY(-15%);
+    box-shadow: 5px 5px 5px -3px #888888;
 }
 
 @media screen and (max-width: 492px) {
@@ -63,6 +64,8 @@ body {
         height: 25vh;
         min-width: 50%;
         transform: translateY(-15px);
+        object-fit: none;
+        margin-bottom: 10px;
     }
 }
 
@@ -94,6 +97,25 @@ body {
     margin: 2.5%;
     width: 100%;
     box-shadow: 5px 5px 5px -3px #888888;
+}
+
+@media screen and (max-width: 492px) {
+    .card {
+        margin: 5%;
+    }
+}
+
+#query-display {
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 492px) {
+    #query-display {
+        font-size: 24px;
+    }
 }
 
 /* Page loader */

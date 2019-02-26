@@ -2,9 +2,10 @@ var verify_existance = false;
 
 function queryBooks() {
     
-    const QUERY = document.getElementById("query").value;
+    const QUERY = (document.getElementById("query").value).toLowerCase();
     var results = document.getElementById("res");
     loader.setAttribute('style', 'display: block;');
+    var query_display = document.getElementById("query-display");
 
     if (verify_existance == true) {
             results.remove(results);
@@ -16,11 +17,18 @@ function queryBooks() {
             loader = document.createElement('div');
             loader.setAttribute('class', 'loader');
             loader.setAttribute('id', 'load');
+            
+            query_display = document.createElement('div');
+            query_display.setAttribute('id', 'query-display');
 
-            results.appendChild(loader)
+            results.appendChild(loader);
+            results.appendChild(query_display);
+
             document.getElementById('main').appendChild(results);
         }
-    
+
+    query_display.innerHTML = "Related results for \"" + QUERY + "\"";
+
     const URL = "https://www.googleapis.com/books/v1/volumes?q=" + QUERY
     
     var request = new XMLHttpRequest();
@@ -89,6 +97,7 @@ function queryBooks() {
     verify_existance = true;
     // Send request
     request.send()
+    document.getElementById('query').value = ''
     setTimeout("loader.setAttribute('style', 'display: none;')", 1500); 
     
 }
