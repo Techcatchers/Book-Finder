@@ -4,22 +4,22 @@ function queryBooks() {
     
     const QUERY = document.getElementById("query").value;
     var results = document.getElementById("res");
+    loader.setAttribute('style', 'display: block;');
 
     if (verify_existance == true) {
-            // for (var i = 0; i < 10; i++) {
-            // console.log(results)
             results.remove(results);
 
             results = document.createElement('div');
             results.setAttribute('id', 'res'); 
             results.setAttribute('class', 'results'); 
 
+            loader = document.createElement('div');
+            loader.setAttribute('class', 'loader');
+            loader.setAttribute('id', 'load');
+
+            results.appendChild(loader)
             document.getElementById('main').appendChild(results);
         }
-    
-    // var card = '';
-
-    // results.innerHTML = QUERY;
     
     const URL = "https://www.googleapis.com/books/v1/volumes?q=" + QUERY
     
@@ -44,9 +44,8 @@ function queryBooks() {
                 var thumbnail = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Georgia_404.svg/1125px-Georgia_404.svg.png'
             }
 
-            var info = (data["items"][i]["volumeInfo"]["infoLink"]) || 'No info Disclosed'
+        var info = (data["items"][i]["volumeInfo"]["infoLink"]) || 'No info Disclosed'
             
-            // results.innerHTML = authors + "<br>" + title + "<br>" + publisher + "<br>" + thumbnail + "<br>" + info + "<br>"
             
         card = document.createElement('div');
         card.setAttribute('class', 'card col-md-6');
@@ -57,8 +56,7 @@ function queryBooks() {
         const logo = document.createElement('img');
         logo.src = thumbnail;
         logo.className = "card-img-top"
-        // logo.align = "left"
-        // console.log(thumbnail)
+    
         card.appendChild(logo);
         
         const card_body = document.createElement('div');
@@ -91,5 +89,6 @@ function queryBooks() {
     verify_existance = true;
     // Send request
     request.send()
+    setTimeout("loader.setAttribute('style', 'display: none;')", 1500); 
     
 }
