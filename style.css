@@ -6,10 +6,22 @@ body {
     width: 50%;
     position: relative;
     top: 25vh;
-    left: 22vw;;
+    /* left: 0vw; */
     /* transform: translate(45%, 300%); */
     margin: auto;
-    display: inline-block;
+    display: flex;
+}
+
+@media screen and (max-width: 561px) {
+    .frm {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 492px) {
+    .frm {
+        width: 90%;
+    }
 }
 
 .form-control {
@@ -36,6 +48,7 @@ body {
 
 @media screen and (max-width: 561px) {
     .booktit {
+        width: 100%;
         font-size: 42px;
         left: 25vw;
     }
@@ -43,7 +56,10 @@ body {
 
 @media screen and (max-width: 492px) {
     .booktit {
-        font-size: 32px;
+        width: 100%;
+        left: 20vw;
+        font-size: 36px;
+        /* margin-bottom: 5px; */
     }
 }
 
@@ -102,6 +118,7 @@ body {
 @media screen and (max-width: 492px) {
     .card {
         margin: 5%;
+        margin-left: 1%;
     }
 }
 
