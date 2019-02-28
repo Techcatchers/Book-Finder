@@ -43,7 +43,7 @@ body {
     top: 10vh;
     left: 35vw;
     /* transform: translate(67%, 70%); */
-    margin: auto;
+    /* margin: auto; */
 }
 
 @media screen and (max-width: 561px) {
@@ -56,7 +56,7 @@ body {
 
 @media screen and (max-width: 492px) {
     .booktit {
-        width: 100%;
+        width: 80%;
         left: 20vw;
         font-size: 36px;
         /* margin-bottom: 5px; */
